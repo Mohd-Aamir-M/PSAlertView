@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TwoButtonTableViewCell" customModule="PSAlertView" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="firstCell" id="KdM-Hg-fHW" customClass="TwoButtonTableViewCell" customModule="PSAlertView" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KdM-Hg-fHW" id="dA6-NL-qvl">
+                <frame key="frameInset" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8x-fN-WjN">
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="iL1-iL-XpA"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ikR-xq-EKy">
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="UNk-rj-I6u"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xiz-SK-63h">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="43" id="8WV-mU-xjo"/>
+                        </constraints>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4g-sn-68g"/>
+                </subviews>
+                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="t4g-sn-68g" secondAttribute="bottom" id="0fA-0X-TgJ"/>
+                    <constraint firstItem="ikR-xq-EKy" firstAttribute="bottom" secondItem="Xiz-SK-63h" secondAttribute="bottom" id="176-GV-NJm"/>
+                    <constraint firstAttribute="trailing" secondItem="t4g-sn-68g" secondAttribute="trailing" id="2JG-fe-Tl6"/>
+                    <constraint firstItem="Xiz-SK-63h" firstAttribute="leading" secondItem="dA6-NL-qvl" secondAttribute="leading" id="2hc-Qk-j7Z"/>
+                    <constraint firstItem="ikR-xq-EKy" firstAttribute="trailing" secondItem="Xiz-SK-63h" secondAttribute="trailing" id="8Jo-iF-XyY"/>
+                    <constraint firstAttribute="bottom" secondItem="t4g-sn-68g" secondAttribute="bottom" id="CaG-9N-KOO"/>
+                    <constraint firstItem="Xiz-SK-63h" firstAttribute="width" secondItem="t4g-sn-68g" secondAttribute="width" id="H0d-aN-EQB"/>
+                    <constraint firstItem="W8x-fN-WjN" firstAttribute="leading" secondItem="dA6-NL-qvl" secondAttribute="leading" id="Pem-CT-l6m"/>
+                    <constraint firstAttribute="bottom" secondItem="Xiz-SK-63h" secondAttribute="bottom" id="QK7-4A-ivA"/>
+                    <constraint firstItem="W8x-fN-WjN" firstAttribute="top" secondItem="dA6-NL-qvl" secondAttribute="top" id="R9d-Bx-hQc"/>
+                    <constraint firstItem="ikR-xq-EKy" firstAttribute="top" secondItem="Xiz-SK-63h" secondAttribute="top" id="gpa-dP-Umc"/>
+                    <constraint firstAttribute="bottom" secondItem="Xiz-SK-63h" secondAttribute="bottom" id="jpg-j6-PUq"/>
+                    <constraint firstItem="Xiz-SK-63h" firstAttribute="height" secondItem="t4g-sn-68g" secondAttribute="height" id="n62-3C-bTD"/>
+                    <constraint firstAttribute="trailing" secondItem="W8x-fN-WjN" secondAttribute="trailing" id="rwA-8X-hdw"/>
+                    <constraint firstItem="t4g-sn-68g" firstAttribute="top" secondItem="dA6-NL-qvl" secondAttribute="top" id="vlS-bM-ZKe"/>
+                    <constraint firstItem="t4g-sn-68g" firstAttribute="leading" secondItem="Xiz-SK-63h" secondAttribute="trailing" constant="1" id="xLc-0A-iad"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="btnAlertFirst" destination="Xiz-SK-63h" id="0eB-fZ-5gg"/>
+                <outlet property="btnSecondAlert" destination="t4g-sn-68g" id="5fb-jA-uGD"/>
+            </connections>
+            <point key="canvasLocation" x="54" y="34"/>
+        </tableViewCell>
+    </objects>
+</document>
