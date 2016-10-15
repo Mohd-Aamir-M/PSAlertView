@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57BFED2C1DB232E500D1431E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BFED2B1DB232E500D1431E /* ViewController.swift */; };
+		57BFED2E1DB2330F00D1431E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57BFED2D1DB2330F00D1431E /* Main.storyboard */; };
+		57BFED3C1DB2348C00D1431E /* SingleButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BFED3A1DB2348C00D1431E /* SingleButtonTableViewCell.swift */; };
+		57BFED3D1DB2348C00D1431E /* SingleButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57BFED3B1DB2348C00D1431E /* SingleButtonTableViewCell.xib */; };
+		57BFED411DB234C800D1431E /* TwoButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BFED3F1DB234C800D1431E /* TwoButtonTableViewCell.swift */; };
+		57BFED421DB234C800D1431E /* TwoButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57BFED401DB234C800D1431E /* TwoButtonTableViewCell.xib */; };
+		57BFED461DB2350900D1431E /* PSAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BFED441DB2350900D1431E /* PSAlertView.swift */; };
+		57BFED471DB2350900D1431E /* PSAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57BFED451DB2350900D1431E /* PSAlertView.xib */; };
+		57BFED4B1DB2352400D1431E /* CellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BFED491DB2352400D1431E /* CellHeader.swift */; };
+		57BFED4C1DB2352400D1431E /* CellHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57BFED4A1DB2352400D1431E /* CellHeader.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		F437F6AD5A936E5BD542DED5 /* Pods_PSAlertView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2445440ECABD269DE4090AAD /* Pods_PSAlertView_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -17,6 +27,16 @@
 		05E9B3E998BBE79DE629E27C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		2445440ECABD269DE4090AAD /* Pods_PSAlertView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PSAlertView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		292C3D688BFCDD446635BD53 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		57BFED2B1DB232E500D1431E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		57BFED2D1DB2330F00D1431E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		57BFED3A1DB2348C00D1431E /* SingleButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleButtonTableViewCell.swift; sourceTree = "<group>"; };
+		57BFED3B1DB2348C00D1431E /* SingleButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleButtonTableViewCell.xib; sourceTree = "<group>"; };
+		57BFED3F1DB234C800D1431E /* TwoButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoButtonTableViewCell.swift; sourceTree = "<group>"; };
+		57BFED401DB234C800D1431E /* TwoButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoButtonTableViewCell.xib; sourceTree = "<group>"; };
+		57BFED441DB2350900D1431E /* PSAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSAlertView.swift; sourceTree = "<group>"; };
+		57BFED451DB2350900D1431E /* PSAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSAlertView.xib; sourceTree = "<group>"; };
+		57BFED491DB2352400D1431E /* CellHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellHeader.swift; sourceTree = "<group>"; };
+		57BFED4A1DB2352400D1431E /* CellHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellHeader.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* PSAlertView_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PSAlertView_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
@@ -35,6 +55,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57BFED391DB2348C00D1431E /* SingleButtonTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				57BFED3A1DB2348C00D1431E /* SingleButtonTableViewCell.swift */,
+				57BFED3B1DB2348C00D1431E /* SingleButtonTableViewCell.xib */,
+			);
+			path = SingleButtonTableViewCell;
+			sourceTree = "<group>";
+		};
+		57BFED3E1DB234C800D1431E /* TwoButtonTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				57BFED3F1DB234C800D1431E /* TwoButtonTableViewCell.swift */,
+				57BFED401DB234C800D1431E /* TwoButtonTableViewCell.xib */,
+			);
+			path = TwoButtonTableViewCell;
+			sourceTree = "<group>";
+		};
+		57BFED431DB2350900D1431E /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				57BFED441DB2350900D1431E /* PSAlertView.swift */,
+				57BFED451DB2350900D1431E /* PSAlertView.xib */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
+		57BFED481DB2352400D1431E /* HeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				57BFED491DB2352400D1431E /* CellHeader.swift */,
+				57BFED4A1DB2352400D1431E /* CellHeader.xib */,
+			);
+			path = HeaderCell;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +130,12 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				57BFED2B1DB232E500D1431E /* ViewController.swift */,
+				57BFED481DB2352400D1431E /* HeaderCell */,
+				57BFED431DB2350900D1431E /* AlertView */,
+				57BFED3E1DB234C800D1431E /* TwoButtonTableViewCell */,
+				57BFED391DB2348C00D1431E /* SingleButtonTableViewCell */,
+				57BFED2D1DB2330F00D1431E /* Main.storyboard */,
 				0520658CD26CA412105082B3 /* PSAlertView.podspec */,
 				292C3D688BFCDD446635BD53 /* README.md */,
 				05E9B3E998BBE79DE629E27C /* LICENSE */,
@@ -133,6 +195,7 @@
 				TargetAttributes = {
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -160,6 +223,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57BFED4C1DB2352400D1431E /* CellHeader.xib in Resources */,
+				57BFED421DB234C800D1431E /* TwoButtonTableViewCell.xib in Resources */,
+				57BFED3D1DB2348C00D1431E /* SingleButtonTableViewCell.xib in Resources */,
+				57BFED471DB2350900D1431E /* PSAlertView.xib in Resources */,
+				57BFED2E1DB2330F00D1431E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +286,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57BFED4B1DB2352400D1431E /* CellHeader.swift in Sources */,
+				57BFED411DB234C800D1431E /* TwoButtonTableViewCell.swift in Sources */,
+				57BFED2C1DB232E500D1431E /* ViewController.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				57BFED3C1DB2348C00D1431E /* SingleButtonTableViewCell.swift in Sources */,
+				57BFED461DB2350900D1431E /* PSAlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -300,7 +373,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -323,6 +396,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -338,6 +412,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
