@@ -19,7 +19,7 @@ spec.module_name  = 'PSAlertView'
 
 spec.ios.deployment_target  = '9.0'
 
-spec.source_files = "*.{swift}"
+spec.source_files = "**/*.{swift}"
 
 spec.resources = "*.{storyboard,xib}"
 
