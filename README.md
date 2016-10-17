@@ -1,4 +1,5 @@
 # PSAlertView
+<<<<<<< HEAD
 
 [![CI Status](http://img.shields.io/travis/MacMini03/PSAlertView.svg?style=flat)](https://travis-ci.org/MacMini03/PSAlertView)
 [![Version](https://img.shields.io/cocoapods/v/PSAlertView.svg?style=flat)](http://cocoapods.org/pods/PSAlertView)
@@ -27,3 +28,6 @@ MacMini03, iosdev1@perceptionsystem.com
 ## License
 
 PSAlertView is available under the MIT license. See the LICENSE file for more info.
+=======
+PSAlertView uses the properties and methods defined in this class to set the title, message, and delegate of PSAlertView and configure the buttons. You must set a delegate if you add custom buttons.
+>>>>>>> ae435c9f42e82e851570495bea49ebec54dad700
