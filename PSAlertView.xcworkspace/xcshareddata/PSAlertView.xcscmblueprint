@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "73902D5B35B9D93F21AFBB8D50463792A1444F32",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "73902D5B35B9D93F21AFBB8D50463792A1444F32" : 9223372036854775807,
+    "D8D35A24F78B14851B6237BE53AA864E14EB3BF4" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5DF6CC9A-0987-41B4-BA99-492C1159EE05",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "73902D5B35B9D93F21AFBB8D50463792A1444F32" : "Example\/",
+    "D8D35A24F78B14851B6237BE53AA864E14EB3BF4" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PSAlertView",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "PSAlertView.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/PSIPhone\/PSAlertView",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "73902D5B35B9D93F21AFBB8D50463792A1444F32"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/PSIPhone\/PSAlertView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D8D35A24F78B14851B6237BE53AA864E14EB3BF4"
+    }
+  ]
+}
