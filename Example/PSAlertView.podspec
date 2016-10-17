@@ -33,14 +33,31 @@ Pod::Spec.new do |s|
 
   s.source            =  { :git => 'https://github.com/PSIPhone/PSAlertView.git', :tag => 'v0.0.1’ }
 
+  s.default_subspec = 'Core'
 
-  # s.source_files  = “PSAlertview”, “PSAlertView/**/*.{h,m,swift}”
+  s.subspec 'Core' do | ss |
+    ss.source_files = ‘PSAlertView/**/*.{swift}’
+    ss.resource_bundle = {
+      ‘PSAlertView’ => [
+        ‘PSAlertView/Example/HeaderCell/CellHeader.swift’, 
+        'PSAlertView/Example/HeaderCell/CellHeader.xib’, 
+        'PSAlertView/Example/AlertView/PSAlertView.swift',
+        'PSAlertView/Example/AlertView/PSAlertView.xib’,
+        'PSAlertView/Example/TwoButtonTableViewCell/TwoButtonTableViewCell.swift’,
+        'PSAlertView/Example/TwoButtonTableViewCell/TwoButtonTableViewCell.xib’,
+        'PSAlertView/Example/SingleButtonTableViewCell/SingleButtonTableViewCell.swift’,
+        'PSAlertView/Example/SingleButtonTableViewCell/SingleButtonTableViewCell.swift’,
+        'PSAlertView/Example/ViewController.swift’,
+       'PSAlertView/Example/Main.storyboard’,
+      ]
+    }
+  end
+
+
+
   # s.exclude_files = “PSAlertView/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
-
-  # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
 
   s.framework  = 'UIKit'
 
