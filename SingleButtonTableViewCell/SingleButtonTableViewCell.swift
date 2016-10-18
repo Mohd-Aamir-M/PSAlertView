@@ -8,16 +8,16 @@
 
 import UIKit
 
-class SingleButtonTableViewCell: UITableViewCell {
-    @IBOutlet weak var btnAlertFirst: UIButton!
+public class SingleButtonTableViewCell: UITableViewCell {
+    @IBOutlet public var btnAlertFirst: UIButton!
 
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
 
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override public func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

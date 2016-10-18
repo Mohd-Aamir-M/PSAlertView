@@ -15,60 +15,60 @@ public enum AnimationType {
 
 import UIKit
 
-@objc protocol PSAlertViewdelegate {
+public @objc protocol PSAlertViewdelegate {
     @objc optional
-    func didTapButton(_ alertView: PSAlertView, atIndex:NSInteger)
+   public func didTapButton(_ alertView: PSAlertView, atIndex:NSInteger)
     
 }
 
-class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
+public class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var tblViewAlertButton: UITableView!
-    @IBOutlet  var tblViewHeightConstraints: NSLayoutConstraint! // heightConstraint
-    @IBOutlet  var tblViewLeadingConstraints: NSLayoutConstraint! // Leading constraint for actionsheet
-    @IBOutlet var tblViewTopConstraint : NSLayoutConstraint! // top constraint for actionsheet
+    @IBOutlet public var tblViewAlertButton: UITableView!
+    @IBOutlet public var tblViewHeightConstraints: NSLayoutConstraint! // heightConstraint
+    @IBOutlet public var tblViewLeadingConstraints: NSLayoutConstraint! // Leading constraint for actionsheet
+    @IBOutlet public var tblViewTopConstraint : NSLayoutConstraint! // top constraint for actionsheet
     
     
     // Property for showing cancel button in alertView. This is public property
-    var showCancelButton : Bool?;
+    public var showCancelButton : Bool?;
     
     // property for showing Alertview or ActionSheet using true or false
-    var isAlert : Bool = true
+    public var isAlert : Bool = true
     
-    var strTitle: String?
-    var strMessage : String?
+  public  var strTitle: String?
+   public var strMessage : String?
 
     // Property for title of cancel button. This is public property
-    var  cancelButtonTitle : String?;
+   public var  cancelButtonTitle : String?;
     
     // enum initialze of animation type
-    var objAnimationType : AnimationType = AnimationType.alertCenterPopOut
+   public var objAnimationType : AnimationType = AnimationType.alertCenterPopOut
     
 
     // property for assign number of button to alertView.This is public property
-    var buttons : NSMutableArray!
+  public  var buttons : NSMutableArray!
 
     // it is the delegate property for the alertView delegate.This is public property
-    var delegate:PSAlertViewdelegate!
+  public  var delegate:PSAlertViewdelegate!
     
     
-    override init (frame : CGRect) {
+   public override init (frame : CGRect) {
         super.init(frame : frame)
     }
     
-    convenience init () {
+   public convenience init () {
         self.init(frame:CGRect.zero)
     }
     
     // add cancel button
-    func addCancelButton (_ btnCancel : UIButton){
+   public func addCancelButton (_ btnCancel : UIButton){
         btnCancel.setTitle(cancelButtonTitle, for: UIControlState())
         btnCancel.addTarget(self, action: #selector(PSAlertView.clickCancel(_:)), for: .touchUpInside)
         btnCancel.tag = 0
     }
     
     
-    convenience  init(title : String, message : String) {
+  public  convenience  init(title : String, message : String) {
         self.init(frame: UIScreen.main.bounds)
         strTitle = title
         strMessage = message
@@ -116,13 +116,13 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         }
     }
 
-    required init?(coder aDecoder: NSCoder) {
+   public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
     }
     
     // add PSAlertView/PSActionSheet
-    func loadViewFromNib(){
+   public func loadViewFromNib(){
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "PSAlertView", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! PSAlertView
@@ -130,19 +130,19 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         self .addSubview(view)
     }
     
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+   public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+   public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
             return UITableViewAutomaticDimension
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerViewCell = tableView.dequeueReusableCell(withIdentifier: "CellHeader") as! CellHeader
         if isAlert {
             headerViewCell.backgroundColor = UIColor.white
@@ -157,18 +157,18 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+   public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
 //    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //            return UITableViewAutomaticDimension
 //    }
     
-    func tableView(_ tableView : UITableView , estimatedHeightForRowAt indexPath : IndexPath) -> CGFloat {
+   public func tableView(_ tableView : UITableView , estimatedHeightForRowAt indexPath : IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension;
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  public  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if (buttons.count)>1 && showCancelButton! {
             return buttons.count + 1;
@@ -182,7 +182,7 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  public  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if buttons.count==1 && showCancelButton!{
             let identifier = "firstCell"
             var cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! TwoButtonTableViewCell!
@@ -224,7 +224,7 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
  
     
     // display alertView/ActionSheet using animaiton
-    func display() {
+  public  func display() {
         
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = UIScreen.main.scale
@@ -257,7 +257,7 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
     }
     
     // programmatically set top(y) position of tableview
-    func addConstraintsOnAnimation() {
+    public func addConstraintsOnAnimation() {
         self.tblViewTopConstraint.constant = ((self.frame.size.height)-(self.tblViewAlertButton.frame.size.height))/2;
         tblViewLeadingConstraints.constant = 0
         self.tblViewAlertButton.layoutIfNeeded()
@@ -265,7 +265,7 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
 
     
     // dismiss alertView/actionsheet
-    func dismiss() {
+   public func dismiss() {
         switch(objAnimationType) {
         case .alertCenterFade:
             setAnimation(false, .alertCenterFade)
@@ -286,7 +286,7 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
     }
     
     // Perform animation using this method it takes two parameters like if isAnimation is true then it will display alert/actionSheet with the type of animation.
-    func setAnimation(_ isAnimation : Bool, _ animationType: AnimationType) {
+  public  func setAnimation(_ isAnimation : Bool, _ animationType: AnimationType) {
 
         switch(objAnimationType) {
             
@@ -509,7 +509,7 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         }
 
     
-    func clickOnOtherButton(_ sender : UIButton) -> Void {
+   public func clickOnOtherButton(_ sender : UIButton) -> Void {
         let cell = sender.superview?.superview as! UITableViewCell
         let indexPath = tblViewAlertButton!.indexPath(for: cell)
         let senderIndex : NSInteger =  (showCancelButton! == false) ? ((indexPath as NSIndexPath?)?.row)! : ((indexPath as NSIndexPath?)?.row)!+1
@@ -518,7 +518,7 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
 //        self.dismiss()
     }
     
-    func clickCancel(_ sender : UIButton) -> Void {
+public func clickCancel(_ sender : UIButton) -> Void {
         delegate.didTapButton!(self, atIndex: sender.tag)
         self.dismiss()
         
@@ -526,13 +526,13 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
     
 }
 
-extension UIView {
-    func fadeIn(_ duration: TimeInterval, delay: TimeInterval, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
+public extension UIView {
+   public func fadeIn(_ duration: TimeInterval, delay: TimeInterval, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
         UIView.animate(withDuration: duration, delay: delay, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.alpha = 1.0
             }, completion: completion)  }
     
-    func fadeOut(_ duration: TimeInterval , delay: TimeInterval, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
+  public  func fadeOut(_ duration: TimeInterval , delay: TimeInterval, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
         UIView.animate(withDuration: duration, delay: delay, options: UIViewAnimationOptions.curveEaseOut, animations: {
             self.alpha = 0.0
             }, completion: completion)

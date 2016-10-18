@@ -8,16 +8,16 @@
 
 import UIKit
 
-class CellHeader: UITableViewCell {
-    @IBOutlet var lblTitle : UILabel! // title label
-    @IBOutlet var lblMessage : UILabel! // message label
+public class CellHeader: UITableViewCell {
+   public @IBOutlet var lblTitle : UILabel! // title label
+  public  @IBOutlet var lblMessage : UILabel! // message label
 
-    override func awakeFromNib() {
+   public override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+   public override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
