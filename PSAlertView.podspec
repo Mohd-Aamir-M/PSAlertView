@@ -21,7 +21,10 @@ spec.ios.deployment_target  = '9.0'
 
 spec.source_files = "**/*.{swift}"
 
-spec.resources = "**/*.{xib}"
+s.resource_bundles = {
+'PSAlertView' => ['/**/*.{xib}']
+}
+
 
 spec.ios.framework  = 'UIKit'
 
