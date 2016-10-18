@@ -5,13 +5,12 @@
 //  Created by Macmini5 on 30/08/16.
 //  Copyright © 2016 Macmini5. All rights reserved.
 //
-
 public enum AnimationType {
-    case alertCenterPop // alertView smooth animation
-    case alertCenterFade // alertView fade in animation
-    case alertCenterPopOut // alertView elastic animation
-    case sheetElasticIn // actionSheet elasticIn animation
-    case sheetSimpleIn // actionSheet simple animation
+    case alertCenterPop // for alertView
+    case alertCenterFade // for alertView
+    case alertCenterPopOut // for alertView
+    case sheetElasticIn // for actionSheet
+    case sheetSimpleIn // for actionSheet
 }
 
 import UIKit
@@ -36,20 +35,22 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
     // property for showing Alertview or ActionSheet using true or false
     var isAlert : Bool = true
     
-    var strTitle: String? = nil
-    var strMessage : String? = nil
-    
+    var strTitle: String?
+    var strMessage : String?
+
     // Property for title of cancel button. This is public property
     var  cancelButtonTitle : String?;
     
     // enum initialze of animation type
     var objAnimationType : AnimationType = AnimationType.alertCenterPopOut
     
+
     // property for assign number of button to alertView.This is public property
     var buttons : NSMutableArray!
-    
+
     // it is the delegate property for the alertView delegate.This is public property
     var delegate:PSAlertViewdelegate!
+    
     
     override init (frame : CGRect) {
         super.init(frame : frame)
@@ -65,6 +66,7 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         btnCancel.addTarget(self, action: #selector(PSAlertView.clickCancel(_:)), for: .touchUpInside)
         btnCancel.tag = 0
     }
+    
     
     convenience  init(title : String, message : String) {
         self.init(frame: UIScreen.main.bounds)
@@ -82,14 +84,13 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         } else {
             strMessage = message
         }
-        
         loadViewFromNib()
         
         //Register nib of tableview headerView
         tblViewAlertButton.register(UINib(nibName: "CellHeader", bundle: nil), forCellReuseIdentifier: "CellHeader")
         tblViewAlertButton.dataSource = self
         tblViewAlertButton.delegate = self
-        
+
         tblViewAlertButton.backgroundColor = UIColor.red
         
         // height of tableview row
@@ -99,22 +100,22 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         // height of tableview header
         tblViewAlertButton.sectionHeaderHeight = UITableViewAutomaticDimension;
         tblViewAlertButton.estimatedSectionHeaderHeight = 65;
-        
+    
         tblViewAlertButton.layer.shadowOffset = CGSize(width: 0, height: 3)
         tblViewAlertButton.layer.shadowColor = UIColor.black.cgColor
         tblViewAlertButton.layer.shadowRadius = 1.0;
         tblViewAlertButton.layer.shadowOpacity = 0.5
-        
+
         buttons = NSMutableArray() //initialize button array
         if isAlert {
             tblViewTopConstraint.constant = 0
             tblViewLeadingConstraints.constant = 20
         } else {
             tblViewLeadingConstraints.constant = 0
-            
+
         }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -124,24 +125,24 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
     func loadViewFromNib(){
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "PSAlertView", bundle: bundle)
-        let psAlertView = nib.instantiate(withOwner: self, options: nil)[0] as! PSAlertView
-        psAlertView.frame = bounds
-        self.addSubview(psAlertView)
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! PSAlertView
+        view.frame = bounds
+        self .addSubview(view)
     }
     
-    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
     }
     
-    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
     
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableViewAutomaticDimension
+    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            return UITableViewAutomaticDimension
     }
     
-    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerViewCell = tableView.dequeueReusableCell(withIdentifier: "CellHeader") as! CellHeader
         if isAlert {
             headerViewCell.backgroundColor = UIColor.white
@@ -156,8 +157,8 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView : UITableView , estimatedHeightForRowAt indexPath : IndexPath) -> CGFloat {
@@ -165,7 +166,7 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         if (buttons.count)>1 && showCancelButton! {
             return buttons.count + 1;
             
@@ -194,19 +195,19 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
             let identifier = "secondCell"
             
             var cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! SingleButtonTableViewCell!
-            
+
             if cell == nil {
                 tableView.register(UINib(nibName: "SingleButtonTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
                 cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? SingleButtonTableViewCell
             }
-            
+
             if ((buttons.count)==0 || buttons == nil) && showCancelButton! {
                 
                 self .addCancelButton((cell?.btnAlertFirst)!);
             }  else{
                 if (indexPath as NSIndexPath).row == (buttons.count) {
-                    self .addCancelButton((cell?.btnAlertFirst)!);
-                    
+                self .addCancelButton((cell?.btnAlertFirst)!);
+
                 }
                 else{
                     cell?.btnAlertFirst .setTitle(buttons[(indexPath as NSIndexPath).row] as? String, for: UIControlState())
@@ -217,7 +218,7 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
             return cell!;
         }
     }
-    
+ 
     
     // display alertView/ActionSheet using animaiton
     func display() {
@@ -226,26 +227,26 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         self.layer.rasterizationScale = UIScreen.main.scale
         
         if isAlert {
-            switch(objAnimationType) {
-            case .alertCenterFade:
-                setAnimation(isAnimation: true, .alertCenterFade)
-                break;
-            case .alertCenterPopOut:
-                setAnimation(isAnimation: true, .alertCenterPopOut)
-                break;
-            case .alertCenterPop:
-                setAnimation(isAnimation: true, .alertCenterPop)
-                break;
-            default : break
+                switch(objAnimationType) {
+                case .alertCenterFade:
+                    setAnimation(true, .alertCenterFade)
+                    break;
+                case .alertCenterPopOut:
+                    setAnimation(true, .alertCenterPopOut)
+                    break;
+                case .alertCenterPop:
+                    setAnimation(true, .alertCenterPop)
+                    break;
+                default : break
             }
         } else {
             switch(objAnimationType) {
             case .sheetElasticIn:
-                setAnimation(isAnimation: true, .sheetElasticIn)
+                setAnimation(true, .sheetElasticIn)
                 break
             case .sheetSimpleIn :
-                setAnimation(isAnimation: true, .sheetSimpleIn)
-                
+                setAnimation(true, .sheetSimpleIn)
+
             default : break
             }
         }
@@ -257,32 +258,32 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         tblViewLeadingConstraints.constant = 0
         self.tblViewAlertButton.layoutIfNeeded()
     }
-    
+
     
     // dismiss alertView/actionsheet
     func dismiss() {
         switch(objAnimationType) {
         case .alertCenterFade:
-            setAnimation(isAnimation: false, .alertCenterFade)
+            setAnimation(false, .alertCenterFade)
             break;
         case .alertCenterPopOut:
-            setAnimation(isAnimation: false, .alertCenterPopOut)
+            setAnimation(false, .alertCenterPopOut)
             break;
         case .alertCenterPop:
-            setAnimation(isAnimation: false, .alertCenterPop)
+            setAnimation(false, .alertCenterPop)
             break;
         case .sheetElasticIn:
-            setAnimation(isAnimation: false, .sheetElasticIn)
+            setAnimation(false, .sheetElasticIn)
             break;
         case .sheetSimpleIn :
-            setAnimation(isAnimation: false, .sheetSimpleIn)
+            setAnimation(false, .sheetSimpleIn)
             break;
         }
     }
     
     // Perform animation using this method it takes two parameters like if isAnimation is true then it will display alert/actionSheet with the type of animation.
-    func setAnimation(isAnimation : Bool, _ animationType: AnimationType) {
-        
+    func setAnimation(_ isAnimation : Bool, _ animationType: AnimationType) {
+
         switch(objAnimationType) {
             
         //Animation for AlertView alertCenterPop
@@ -317,12 +318,12 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
                         }
                         }, completion: nil)
             })
-            
+
         //Animation for AlertView alertCenterFade
         case .alertCenterFade :
             if (isAnimation == true) {
                 
-                self.tblViewAlertButton.fadeIn(duration: 0.25, delay: 0.0, completion: { (finished) in
+                self.tblViewAlertButton.fadeIn(0.25, delay: 0.0, completion: { (finished) in
                     self.alpha = 0.0
                     let window = UIApplication.shared.windows[0]
                     //
@@ -338,7 +339,7 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
                     
                 })
             } else {
-                self.tblViewAlertButton.fadeOut(duration: 0.4, delay: 0.0, completion: { (finished) in
+                self.tblViewAlertButton.fadeOut(0.4, delay: 0.0, completion: { (finished) in
                     self.alpha = 0.0
                     self.removeFromSuperview()
                     
@@ -390,74 +391,74 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
                 })
             }
             
-        //Animation for ActionSheet elasticIn
-        case .sheetElasticIn:
-            UIView.animate(withDuration: 0.2, delay: 0.0, usingSpringWithDamping: 1.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
-                if (isAnimation == true) {
-                    self.tblViewAlertButton.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 1.08);
-                    //
-                    self.perform(#selector(self.addConstraintsOnAnimation), with: self, afterDelay: 0.1)
-                    self.tblViewAlertButton.frame = CGRect(x:0,y: UIScreen.main.bounds.height - 20 , width : self.frame.size.width,height: ((self.tblViewAlertButton.frame.height) + 50.0))
-                    
-                }else{
-                    self.tblViewAlertButton.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 1.08);
-                }
-                }, completion: { (finished) in
-                    
-                    UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
-                        if isAnimation == true {
-                            self.tblViewAlertButton.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 1.08);
-                            
-                            self.alpha = 1
-                            
-                        } else {
-                            self.alpha = 0
-                            UIView.animate(withDuration: 0.20, animations: {
-                                self.tblViewAlertButton.frame = CGRect(x:0,y: self.frame.size.height+(self.tblViewAlertButton.frame.size.height), width : self.frame.size.width,height: (self.tblViewAlertButton.frame.height))
-                                
-                            })
-                            
-                        }
-                        }, completion: { (finished) in
-                            let window = UIApplication.shared.windows[0]
-                            
-                            
-                            self.tblViewAlertButton.reloadData()
-                            self.tblViewAlertButton.layoutIfNeeded()
-                            
-                            self.tblViewHeightConstraints.constant = (self.tblViewAlertButton.contentSize.height)
-                            window.rootViewController?.view.addSubview(self)
-                            
+            //Animation for ActionSheet elasticIn
+            case .sheetElasticIn:
+                UIView.animate(withDuration: 0.2, delay: 0.0, usingSpringWithDamping: 1.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
+                    if (isAnimation == true) {
+                        self.tblViewAlertButton.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 1.08);
+                        //
+                        self.perform(#selector(self.addConstraintsOnAnimation), with: self, afterDelay: 0.1)
+                        self.tblViewAlertButton.frame = CGRect(x:0,y: UIScreen.main.bounds.height - 20 , width : self.frame.size.width,height: ((self.tblViewAlertButton.frame.height) + 50.0))
+                        
+                    }else{
+                        self.tblViewAlertButton.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 1.08);
+                    }
+                    }, completion: { (finished) in
+                
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+                    if isAnimation == true {
+                        self.tblViewAlertButton.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 1.08);
+
+                        self.alpha = 1
+
+                    } else {
+                        self.alpha = 0
+                        UIView.animate(withDuration: 0.20, animations: { 
+                            self.tblViewAlertButton.frame = CGRect(x:0,y: self.frame.size.height+(self.tblViewAlertButton.frame.size.height), width : self.frame.size.width,height: (self.tblViewAlertButton.frame.height))
+
+                        })
+
+                    }
+                    }, completion: { (finished) in
+                        let window = UIApplication.shared.windows[0]
+
+                        
+                        self.tblViewAlertButton.reloadData()
+                        self.tblViewAlertButton.layoutIfNeeded()
+                        
+                        self.tblViewHeightConstraints.constant = (self.tblViewAlertButton.contentSize.height)
+                        window.rootViewController?.view.addSubview(self)
+
                             if isAnimation == true {
                                 UIView.animate(withDuration: 0.40, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.5, options: .curveEaseIn, animations: {
                                     self.tblViewAlertButton.frame = CGRect(x:0,y: UIScreen.main.bounds.height - 20 , width : self.frame.size.width,height: (self.tblViewAlertButton.frame.height))
                                     let y = ((self.frame.size.height)-(self.tblViewAlertButton.frame.size.height))/2;
                                     
                                     self.tblViewTopConstraint.constant = y
-                                    
+
                                     }, completion: { (finished) in
                                         
                                 })
                                 
                             } else {
                                 UIView.animate(withDuration: 0.3, animations: {
-                                    
-                                    self.tblViewAlertButton.frame = CGRect(x:0,y: self.frame.size.height+(self.tblViewAlertButton.frame.size.height), width : self.frame.size.width,height: (self.tblViewAlertButton.frame.height))
-                                    
-                                    self.tblViewTopConstraint.constant = ((self.frame.size.height)+(self.tblViewAlertButton.frame.size.height));
-                                    self.tblViewAlertButton.transform = CGAffineTransform.identity.scaledBy(x: 0.20, y: 1.8);
-                                    self.tblViewAlertButton.removeFromSuperview()
-                                    self.removeFromSuperview()
-                                    
-                                })
+
+                                self.tblViewAlertButton.frame = CGRect(x:0,y: self.frame.size.height+(self.tblViewAlertButton.frame.size.height), width : self.frame.size.width,height: (self.tblViewAlertButton.frame.height))
                                 
-                            }
-                    })
-            })
+                                self.tblViewTopConstraint.constant = ((self.frame.size.height)+(self.tblViewAlertButton.frame.size.height));
+                                self.tblViewAlertButton.transform = CGAffineTransform.identity.scaledBy(x: 0.20, y: 1.8);
+                                self.tblViewAlertButton.removeFromSuperview()
+                                self.removeFromSuperview()
+                                
+                            })
+
+                        }
+                        })
+                })
+
+                break
             
-            break
-            
-        //Animation for ActionSheet simpleIn
+            //Animation for ActionSheet simpleIn
         case .sheetSimpleIn :
             
             UIView.animate(withDuration: 0.15, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
@@ -501,8 +502,8 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
             
             break
         }
-    }
-    
+        }
+
     
     func clickOnOtherButton(_ sender : UIButton) -> Void {
         let cell = sender.superview?.superview as! UITableViewCell
@@ -510,7 +511,7 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         let senderIndex : NSInteger =  (showCancelButton! == false) ? ((indexPath as NSIndexPath?)?.row)! : ((indexPath as NSIndexPath?)?.row)!+1
         delegate.didTapButton!(self, atIndex:senderIndex)
         
-        //        self.dismiss()
+//        self.dismiss()
     }
     
     func clickCancel(_ sender : UIButton) -> Void {
@@ -522,12 +523,12 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
 }
 
 extension UIView {
-    func fadeIn(duration: TimeInterval, delay: TimeInterval, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
+    func fadeIn(_ duration: TimeInterval, delay: TimeInterval, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
         UIView.animate(withDuration: duration, delay: delay, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.alpha = 1.0
             }, completion: completion)  }
     
-    func fadeOut(duration: TimeInterval , delay: TimeInterval, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
+    func fadeOut(_ duration: TimeInterval , delay: TimeInterval, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
         UIView.animate(withDuration: duration, delay: delay, options: UIViewAnimationOptions.curveEaseOut, animations: {
             self.alpha = 0.0
             }, completion: completion)
