@@ -17,12 +17,12 @@ spec.summary      = 'ARC and GCD Compatible Reachability Class for iOS and OS X.
 spec.source       = { :git => 'https://github.com/PSIPhone/PSAlertView.git', :tag => 'v1.0' }
 spec.module_name  = 'PSAlertView'
 
-spec.ios.deployment_target  = '9.0'
+spec.ios.deployment_target  = '10.0'
 
 spec.source_files = "**/*.{swift}"
 
-s.resource_bundles = {
-'PSAlertView' => ['/**/*.{xib}']
+spec.resource_bundles = {
+'PSAlertView' => ['**/*.{xib}']
 }
 
 
