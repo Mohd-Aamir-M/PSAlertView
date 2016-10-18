@@ -130,19 +130,19 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         self .addSubview(view)
     }
     
-    open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
     }
     
-    open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
     
-    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
             return UITableViewAutomaticDimension
     }
     
-    open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerViewCell = tableView.dequeueReusableCell(withIdentifier: "CellHeader") as! CellHeader
         if isAlert {
             headerViewCell.backgroundColor = UIColor.white
@@ -157,9 +157,12 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return UITableViewAutomaticDimension
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
+//    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//            return UITableViewAutomaticDimension
+//    }
     
     func tableView(_ tableView : UITableView , estimatedHeightForRowAt indexPath : IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension;
@@ -225,6 +228,7 @@ class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = UIScreen.main.scale
+        
         
         if isAlert {
                 switch(objAnimationType) {
