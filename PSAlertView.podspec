@@ -25,6 +25,8 @@ spec.resource_bundles = {
 'PSAlertView' => ['**/*.{xib}']
 }
 
+s.ios.resource_bundle = { 'PSAlertView' => 'PSAlertView/**/*.xib' }
+
 
 spec.ios.framework  = 'UIKit'
 
