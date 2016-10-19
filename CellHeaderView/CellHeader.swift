@@ -9,8 +9,8 @@
 import UIKit
 
 public class CellHeader: UITableViewCell {
-   public @IBOutlet var lblTitle : UILabel! // title label
-  public  @IBOutlet var lblMessage : UILabel! // message label
+    @IBOutlet public var lblTitle : UILabel! // title label
+    @IBOutlet public var lblMessage : UILabel! // message label
 
    public override func awakeFromNib() {
         super.awakeFromNib()

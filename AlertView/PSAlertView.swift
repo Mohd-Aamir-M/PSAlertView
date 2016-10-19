@@ -15,9 +15,9 @@ public enum AnimationType {
 
 import UIKit
 
-public @objc protocol PSAlertViewdelegate {
+ @objc public protocol PSAlertViewdelegate {
     @objc optional
-   public func didTapButton(_ alertView: PSAlertView, atIndex:NSInteger)
+   func didTapButton(_ alertView: PSAlertView, atIndex:NSInteger)
     
 }
 
