@@ -22,7 +22,7 @@ spec.ios.deployment_target  = '10.0'
 spec.source_files = "**/*.{swift}"
 
 
-spec.resources = "**/*.xib}"
+spec.resources = "**/*.{xib}"
 
 
 
