@@ -27,7 +27,6 @@ spec.resource_bundles = {
 
 spec.ios.resource_bundle = { 'PSAlertView' => '**/*.xib' }
 
-spec.resources = ["PSAlertView/Resources/**/*.{xib}"]
 
 
 
