@@ -14,7 +14,6 @@ public enum AnimationType {
 }
 
 import UIKit
-
  @objc public protocol PSAlertViewdelegate {
     @objc optional
    func didTapButton(_ alertView: PSAlertView, atIndex:NSInteger)
@@ -42,7 +41,7 @@ public class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
    public var  cancelButtonTitle : String?;
     
     // enum initialze of animation type
-   public var objAnimationType : AnimationType = AnimationType.alertCenterPopOut
+   public var animationType : AnimationType = AnimationType.alertCenterPopOut
     
 
     // property for assign number of button to alertView.This is public property
@@ -105,11 +104,12 @@ public class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         tblViewAlertButton.layer.shadowColor = UIColor.black.cgColor
         tblViewAlertButton.layer.shadowRadius = 1.0;
         tblViewAlertButton.layer.shadowOpacity = 0.5
+        showCancelButton = true
 
         buttons = NSMutableArray() //initialize button array
         if isAlert {
             tblViewTopConstraint.constant = 0
-            tblViewLeadingConstraints.constant = 20
+            tblViewLeadingConstraints.constant = 40
         } else {
             tblViewLeadingConstraints.constant = 0
 
@@ -231,7 +231,7 @@ public class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
         
         
         if isAlert {
-                switch(objAnimationType) {
+                switch(animationType) {
                 case .alertCenterFade:
                     setAnimation(true, .alertCenterFade)
                     break;
@@ -244,7 +244,7 @@ public class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
                 default : break
             }
         } else {
-            switch(objAnimationType) {
+            switch(animationType) {
             case .sheetElasticIn:
                 setAnimation(true, .sheetElasticIn)
                 break
@@ -266,7 +266,7 @@ public class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
     
     // dismiss alertView/actionsheet
    public func dismiss() {
-        switch(objAnimationType) {
+        switch(animationType) {
         case .alertCenterFade:
             setAnimation(false, .alertCenterFade)
             break;
@@ -288,7 +288,7 @@ public class PSAlertView: UIView ,UITableViewDataSource, UITableViewDelegate {
     // Perform animation using this method it takes two parameters like if isAnimation is true then it will display alert/actionSheet with the type of animation.
   public  func setAnimation(_ isAnimation : Bool, _ animationType: AnimationType) {
 
-        switch(objAnimationType) {
+        switch(animationType) {
             
         //Animation for AlertView alertCenterPop
         case .alertCenterPop :
