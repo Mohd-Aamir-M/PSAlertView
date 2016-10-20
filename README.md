@@ -33,14 +33,16 @@ Finally, just add 'TwoButtonTableViewCell.xib', 'SingleButtonTableViewCell.xib' 
         alertView!.delegate = self
         alertView!.showCancelButton = true
         alertView?.tag = 2
-              //upto 4 buttons
+         //upto 4 buttons
         alertView?.buttons = ["button1","button2","button3"]
         alertView?.tblViewAlertButton?.layer.cornerRadius = 12.0
-        //cancel button title
+        //set cancel button title
         alertView?.cancelButtonTitle = "Dimiss"
         //set type of animation
         alertView?.objAnimationType = .alertCenterPop
-        //display() method PSAlertViewDelegate
+        
+        //To show an AlertView call display() method.
+        
         alertView!.display()
 
 ##Creating the ActionSheet
@@ -52,14 +54,17 @@ Finally, just add 'TwoButtonTableViewCell.xib', 'SingleButtonTableViewCell.xib' 
         alertView?.buttons =  ["button1","button2","button3","button4"]
         alertView?.tblViewLeadingConstraints.constant = 0
         alertView?.tag = 2
-         //cancel button title
+         //set cancel button title
         alertView?.cancelButtonTitle = "Cancel"
          //set type of animation
         alertView?.objAnimationType = .sheetElasticIn
-        //display() method PSAlertViewDelegate
+        
+        //To show an AlertView call display() method.
+        
         alertView! .display()
 
-##Set delegate method of PSAlertViewdelegate 
+##To Handle Tap Just Override Following Method.
+
 public func didTapButton(_ alertView: PSAlertView, atIndex: NSInteger) {
         print("button index",atIndex)
     }
