@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
  public class TwoButtonTableViewCell: UITableViewCell {
    @IBOutlet public var btnAlertFirst: UIButton!
     @IBOutlet public var btnSecondAlert: UIButton!
