@@ -21,6 +21,9 @@ spec.ios.deployment_target  = '10.0'
 
 spec.source_files = "**/*.{swift}"
 
+spec.resource_bundles = {
+'PSAlertView' => ['**/**/**/*.xib']
+}
 
 
 spec.resources = "**/*.{xib}"
