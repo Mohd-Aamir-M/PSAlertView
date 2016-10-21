@@ -26,7 +26,7 @@ spec.resource_bundles = {
 }
 
 
-spec.resources = "**/*.{xib,storyboard}"
+spec.resources = "**/*.{xib}"
 
 
 
